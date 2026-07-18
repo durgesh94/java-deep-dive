@@ -22,11 +22,12 @@ public class QuizApplication {
     public static void main(String[] args) {
     // Step 1: variable declaration and initialization
     Scanner scanner = new Scanner(System.in);
-    int score = 0;
-    int correctAnswers = 0;
-    int wrongAnswers = 0;
+    int score;
+    int correctAnswers;
+    int wrongAnswers;
     int totalQuestions = 5;
     int userAnswer;
+    String retake;
     // Step 2: store the questions and answers in arrays
     String[] questions = {
             "1. What is the capital of France?\n1. Berlin\n2. Madrid\n3. Paris\n4. Rome",
@@ -35,11 +36,22 @@ public class QuizApplication {
             "4. Who wrote 'Romeo and Juliet'?\n1. William Shakespeare\n2. Charles Dickens\n3. Mark Twain\n4. Jane Austen",
             "5. What is the square root of 64?\n1. 6\n2. 7\n3. 8\n4. 9"
     };
+
+    // do-while loop: allows the user to retake the quiz
+    do {
+    // Reset score and counters for each attempt
+    score = 0;
+    correctAnswers = 0;
+    wrongAnswers = 0;
+
+    System.out.println("\n========== QUIZ START ==========\n");
+
     // Step 3: for-loop to iterate through the questions
     for(int i = 0; i < totalQuestions; i++)
     {
         System.out.println(questions[i]);
         // Step 4: get user input for the answer
+        System.out.print("Enter your answer (1-4): ");
         userAnswer = scanner.nextInt();
         // Step 5: switch statement to check the answer
         switch (i) {
@@ -97,7 +109,7 @@ public class QuizApplication {
                 System.out.println("Invalid question number.");
                 break;
         }
-
+        System.out.println();
     }
     // Step 6: Calculate percentage and Grade
     double percentage = (double) score / (totalQuestions * 10) * 100;
@@ -123,6 +135,16 @@ public class QuizApplication {
     System.out.println("Percentage: " + percentage + "%");
     System.out.println("Grade: " + grade);
 
+    // Step 8: Ask user if they want to retake the quiz (do-while retry)
+    System.out.print("\nWould you like to retake the quiz? (yes/no): ");
+    scanner.nextLine(); // consume leftover newline
+    retake = scanner.nextLine().trim().toLowerCase();
+
+    } while (retake.equals("yes"));
+
+    System.out.println("\nThank you for taking the quiz! Goodbye.");
+
+    // Step 9: Close the scanner
     scanner.close();
     }
 }
