@@ -11,6 +11,9 @@ public class CarDemo {
         System.out.println("Brand             : " + car1.getBrand());
         System.out.println("Model             : " + car1.getModel());
         System.out.println("Year              : " + car1.getYear());    
+        System.out.println("Color             : " + car1.getColor());
+        // set color to white and display details again
+        car1.setColor("White");
         car1.displayDetails();
 
         // Create another instance of Car // Tata : Nexon
