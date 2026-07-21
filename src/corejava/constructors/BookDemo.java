@@ -8,7 +8,7 @@ public class BookDemo {
         // Creating Book objects using parameterized constructor
         Book book2 = new Book("Java Programming", "Vishal Patil", "vishal.patil@example.com", "Programming", "Books on Java programming");
         // Creating Book objects using parameterized constructor with publisher details
-        Book book3 = new Book("Advanced Java", 29.99, "Tech Books Publishing", new Address("123 Tech Street", "Tech City", "Tech State", "12345"), 2024);
+        Book book3 = new Book("Advanced Java", 29.99, "Tech Books Publishing", new Address("123 Tech Street", "Pune", "MH", "411033"), 2024);
         // Creating Book objects using constructor chaining with only name and author name
         Book book4 = new Book("Data Structures", "John Doe");
         // Creating Book objects using constructor chaining with all details
