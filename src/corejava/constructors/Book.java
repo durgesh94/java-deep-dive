@@ -42,7 +42,7 @@ public class Book extends Publication {
         this.name = other.name;
         this.price = other.price;
         if (deepCopy) {
-            this.author = new Author(other.author.name, other.author.email);
+            this.author = new Author(other.author.name, other.author.email, new Address());
             this.genre = new Genre();
             this.genre.name = other.genre.name;
             this.genre.description = other.genre.description;
@@ -59,7 +59,7 @@ public class Book extends Publication {
         super(); // calls Publication() no-arg constructor
         this.name = name;
         this.price = price;
-        this.author = new Author(authorName, authorEmail);
+        this.author = new Author(authorName, authorEmail, new Address());
         this.genre = new Genre();
         this.genre.name = genreName;
         this.genre.description = genreDescription;
@@ -94,7 +94,7 @@ public class Book extends Publication {
         super("Default Publisher"); // calls Publication(String) → sets publisherName
         this.name = name;
         this.price = 0.0;
-        this.author = new Author(authorName, authorEmail);
+        this.author = new Author(authorName, authorEmail, new Address());
         this.genre = new Genre();
         System.out.println("Book object created with name: " + name + ", author: " + authorName + ", email: " + authorEmail);
     }
@@ -104,7 +104,7 @@ public class Book extends Publication {
         super("Default Publisher", new Address(), 2024); // calls Publication(String, Address, int)
         this.name = name;
         this.price = 0.0;
-        this.author = new Author(authorName, authorEmail);
+        this.author = new Author(authorName, authorEmail, new Address());
         this.genre = new Genre();
         this.genre.name = genreName;
         this.genre.description = genreDescription;
