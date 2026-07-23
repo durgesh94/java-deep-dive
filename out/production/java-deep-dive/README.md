@@ -2,30 +2,11 @@
 Java backend development journey: Core Java → Spring Boot → Micro-services.
 
 A structured, hands-on repository documenting my journey to becoming a professional Java Backend Developer.
-
-## Topics Covered
-
-- Core Java & OOP
-- Java Collections Framework
-- Streams & Lambda Expressions
-- Maven
-- Unit Testing (JUnit & Mockito)
-- SQL & NoSQL Databases
-- JPA & Hibernate
-- Spring Framework
-- Spring Boot
-- REST APIs
-- API Testing
-- Spring Boot Microservices
-- Assignments & Proof of Concepts (POCs)
-- Real-world Projects
-
 # 📁 Repository Structure
 
 ```text
-java-deep-dive/
+src/
 │
-src
 ├── 01-core-java/
 │   ├── 01-variables-datatypes/
 │   ├── 02-operators/
@@ -58,7 +39,7 @@ src
 │   ├── MethodReference/
 │   └── FunctionalInterfaces/
 │
-├── maven/
+├── 04-maven/
 │   ├── MavenBasics/
 │   ├── Dependencies/
 │   └── BuildLifecycle/
