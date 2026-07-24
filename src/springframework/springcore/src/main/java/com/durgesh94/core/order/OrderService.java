@@ -5,6 +5,10 @@ import springframework.springcore.src.main.java.com.durgesh94.core.notification.
 public class OrderService {
     NotificationService notification;
 
+    // Dependency Injection (DI)
+    // Constructor Injection
+    // Spring injects dependencies via constructor
+    // Spring injects the dependency — OrderService doesn't create it
     public OrderService(NotificationService notification){
         this.notification = notification;
     }
