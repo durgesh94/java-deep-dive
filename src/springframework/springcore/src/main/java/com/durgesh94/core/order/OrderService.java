@@ -1,6 +1,7 @@
-package springframework.springcore.src.main.java.com.durgesh94.core.order;
+package com.durgesh94.core.order;
 
-import springframework.springcore.src.main.java.com.durgesh94.core.notification.NotificationService;
+
+import com.durgesh94.core.notification.NotificationService;
 
 public class OrderService {
     NotificationService notification;

@@ -1,8 +1,8 @@
-package springframework.springcore.src.main.java.com.durgesh94.core;
+package com.durgesh94.core;
 
-import springframework.springcore.src.main.java.com.durgesh94.core.notification.EmailService;
-import springframework.springcore.src.main.java.com.durgesh94.core.notification.NotificationService;
-import springframework.springcore.src.main.java.com.durgesh94.core.order.OrderService;
+import com.durgesh94.core.notification.EmailService;
+import com.durgesh94.core.notification.NotificationService;
+import com.durgesh94.core.order.OrderService;
 
 public class Main {
     public static void main(String[] args) {
