@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+@Component // @Component annotation is used to indicate that a class is a Spring component. It tells Spring that this class should be managed as a bean in the application context. When Spring scans the classpath for components, it will detect this class and create an instance of it as a bean, allowing it to be injected into other components or services as needed.
 public class OrderService {
 
     // 3. Field Injection (final not allowed) // hard to test, can't be final (Avoid)
