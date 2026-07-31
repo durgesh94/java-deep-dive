@@ -1,9 +1,6 @@
 package com.learning.user;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/users")
@@ -19,8 +16,23 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @GetMapping(":id")
+    @GetMapping("/{id}")
     public String getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
+    }
+
+    @PostMapping
+    public String saveUser(User user) {
+        return userService.saveUser(user);
+    }
+
+    @PutMapping
+    public String updateUser(User user) {
+        return userService.updateUser(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteUserById(@PathVariable Long id) {
+        return userService.deleteUser(id);
     }
 }

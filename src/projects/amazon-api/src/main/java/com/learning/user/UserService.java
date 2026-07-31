@@ -1,5 +1,8 @@
 package com.learning.user;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class UserService {
     public String getAllUsers() {
         return "GetAllUsers";
@@ -11,6 +14,10 @@ public class UserService {
 
     public String saveUser(User user) {
         return "SaveUser";
+    }
+
+    public String updateUser(User user) {
+        return "updateUser";
     }
 
     public String deleteUser(Long id) {
