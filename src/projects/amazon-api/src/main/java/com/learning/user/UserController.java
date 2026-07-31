@@ -1,5 +1,7 @@
 package com.learning.user;
 
+import com.learning.user.dto.UserRequestDto;
+import com.learning.user.dto.UserResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +33,8 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> saveUser(@RequestBody User user) {
-        User createdUser = userService.saveUser(user);
+    public ResponseEntity<UserResponseDto> saveUser(@RequestBody UserRequestDto userRequest) {
+        UserResponseDto createdUser = userService.saveUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
