@@ -2,6 +2,7 @@ package com.learning.user;
 
 import com.learning.user.dto.UserRequestDto;
 import com.learning.user.dto.UserResponseDto;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,13 +34,13 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserResponseDto> saveUser(@RequestBody UserRequestDto userRequest) {
+    public ResponseEntity<UserResponseDto> saveUser(@Valid @RequestBody UserRequestDto userRequest) {
         UserResponseDto createdUser = userService.saveUser(userRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<UserResponseDto> updateUser(@PathVariable Long id, @RequestBody UserRequestDto userRequest) {
+    public ResponseEntity<UserResponseDto> updateUser(@PathVariable Long id, @Valid @RequestBody UserRequestDto userRequest) {
         UserResponseDto updatedUser = userService.updateUser(id, userRequest);
         return ResponseEntity.ok(updatedUser);
     }
