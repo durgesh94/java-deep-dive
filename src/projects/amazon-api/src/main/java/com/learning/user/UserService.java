@@ -16,12 +16,16 @@ public class UserService {
         this.userMapper = userMapper;
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponseDto> getAllUsers() {
+        return userMapper.toDtoList(userRepository.findAll());
     }
 
-    public User getUserById(Long id) {
-        return userRepository.findById(id).orElse(null);
+    public UserResponseDto getUserById(Long id) {
+        User user = userRepository.findById(id).orElse(null);
+        if (user == null) {
+            return null;
+        }
+        return userMapper.toDto(user);
     }
 
     public UserResponseDto saveUser(UserRequestDto userRequest) {
@@ -30,14 +34,13 @@ public class UserService {
         return userMapper.toDto(savedUser);
     }
 
-    public User updateUser(Long id, User user) {
-        User existingUser = getUserById(id);
+    public UserResponseDto updateUser(Long id, UserRequestDto userRequest) {
+        User existingUser = userRepository.findById(id).orElse(null);
         if (existingUser == null) {
             return null;
         }
-        existingUser.setName(user.getName());
-        existingUser.setEmail(user.getEmail());
-        return userRepository.save(existingUser);
+        userMapper.updateEntityFromDto(userRequest, existingUser);
+        return userMapper.toDto(userRepository.save(existingUser));
     }
 
     public void deleteUser(Long id) {
