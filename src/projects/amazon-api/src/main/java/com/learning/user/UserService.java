@@ -1,5 +1,6 @@
 package com.learning.user;
 
+import com.learning.common.exception.ResourceNotFoundException;
 import com.learning.user.dto.UserRequestDto;
 import com.learning.user.dto.UserResponseDto;
 import org.springframework.stereotype.Service;
@@ -21,10 +22,10 @@ public class UserService {
     }
 
     public UserResponseDto getUserById(Long id) {
-        User user = userRepository.findById(id).orElse(null);
-//        if (user == null) {
-//            return null;
-//        }
+        User user = userRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found " + id));
         return userMapper.toDto(user);
     }
 
@@ -35,10 +36,10 @@ public class UserService {
     }
 
     public UserResponseDto updateUser(Long id, UserRequestDto userRequest) {
-        User existingUser = userRepository.findById(id).orElse(null);
-        if (existingUser == null) {
-            return null;
-        }
+        User existingUser = userRepository
+                .findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found " + id));
         userMapper.updateEntityFromDto(userRequest, existingUser);
         return userMapper.toDto(userRepository.save(existingUser));
     }
