@@ -25,7 +25,7 @@ public class UserService {
         User user = userRepository
                 .findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("User not found " + id));
+                        new ResourceNotFoundException("User not found with id " + id));
         return userMapper.toDto(user);
     }
 
@@ -39,12 +39,19 @@ public class UserService {
         User existingUser = userRepository
                 .findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("User not found " + id));
+                        new ResourceNotFoundException("User not found with id " + id));
         userMapper.updateEntityFromDto(userRequest, existingUser);
         return userMapper.toDto(userRepository.save(existingUser));
     }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public UserResponseDto getUserByEmail(String email) {
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException("User not found with email " + email));
+        return userMapper.toDto(user);
     }
 }
