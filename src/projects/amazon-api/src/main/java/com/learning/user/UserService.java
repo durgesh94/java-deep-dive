@@ -22,9 +22,9 @@ public class UserService {
 
     public UserResponseDto getUserById(Long id) {
         User user = userRepository.findById(id).orElse(null);
-        if (user == null) {
-            return null;
-        }
+//        if (user == null) {
+//            return null;
+//        }
         return userMapper.toDto(user);
     }
 
