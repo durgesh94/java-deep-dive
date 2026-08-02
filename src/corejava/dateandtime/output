@@ -1,0 +1,59 @@
+== 1. Creating dates and times ==
+Today (LocalDate)      : 2026-08-02
+Now (LocalTime)         : 12:13:24.885022
+Now (LocalDateTime)     : 2026-08-02T12:13:24.885043
+Specific date           : 2026-08-02
+Specific time            : 14:30:15
+Combined date-time       : 2026-08-02T14:30:15
+Parsed date (Christmas)  : 2026-12-25
+
+== 2. Manipulating dates (immutability in action) ==
+Today       : 2026-08-02
+Tomorrow    : 2026-08-03
+Last week   : 2026-07-26
+Next month  : 2026-09-02
+Next year   : 2027-08-02
+Forgot to reassign (bug): 2026-08-02 (still today!)
+First of month           : 2026-08-01
+Last of month             : 2026-08-31
+Next Monday                : 2026-08-03
+Is leap year?               : false
+Day of week                 : SUNDAY
+
+== 3. Comparing dates ==
+2026-08-02 isBefore 2026-12-25 -> true
+2026-08-02 isAfter  2026-12-25 -> false
+2026-08-02 isEqual  2026-12-25 -> false
+2026-08-02 compareTo 2026-12-25 -> -4
+
+== 4. Period vs Duration (differences) ==
+Period between 2026-01-01 and 2026-08-02 -> 7 months, 1 days
+Total days between        : 213
+Business hours duration    : 8h 30m
+
+== 5. Formatting and parsing ==
+Custom format             : 02-08-2026 14:30:15
+Re-parsed back             : 2026-08-02T14:30:15
+ISO format                 : 2026-08-02T14:30:15
+Readable format             : 02 Aug 2026, Sunday
+
+== 6. Timezones with ZonedDateTime ==
+Meeting time (IST)          : 2026-08-05T15:00+05:30[Asia/Kolkata]
+Same instant (New York)     : 2026-08-05T05:30-04:00[America/New_York]
+Fixed-offset time            : 2026-08-02T12:13:24.925723+05:30
+
+== 7. Instant — machine timestamps ==
+Instant.now()                : 2026-08-02T06:43:24.925881Z
+Epoch millis                  : 1785653004925
+One hour later                : 2026-08-02T07:43:24.925881Z
+Displayed in IST               : 2026-08-02T12:13:24.925881+05:30[Asia/Kolkata]
+
+== 8. Legacy Date/Calendar interop ==
+Legacy Date -> LocalDateTime  : 2026-08-02T12:13:24.926
+LocalDateTime -> legacy Date   : Sun Aug 02 12:13:24 IST 2026
+Calendar -> ZonedDateTime       : 2026-08-02T12:13:24.932+05:30[Asia/Kolkata]
+
+== 9. Real-world patterns ==
+Age (born 1995-06-15)      : 31
+2026-08-02 is weekend?              : true
+Days until 2026-12-31        : 151
